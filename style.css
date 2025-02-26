@@ -1,69 +1,77 @@
-root {
-    font-family: system-ui, sans-serif;
-    font-size: clamp(14px, 5vw, 20px);
-    --dark-color: #5c6378ff;
-    --light-color: #edf2f4ff;
-    --background-color: #2b2d42ff;
-    --secondary-color: #757e93ff;
-    --antiflash-white: #edf2f4ff;
-    --important-color: #ef233cff;
-    --fire-engine-red: #d90429ff;
-  }
-  
-  body {
-    background-color: var(--background-color);
-    color: var(--light-color);
-    margin: 0;
-  }
-  
-  article {
-    background-color: var(--light-color);
-    color: var(--dark-color);
-    padding: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  article figure {
-    margin: 0;
-  }
-  
-  img {
-    display: block;
-    width: 100%;
-  }
-  
-  main {
-    width: 90%;
-    max-width: 1200px;
-    margin-inline: auto;
-    padding-block-start: 2rem;
-  }
-@media screen and (aspect-ratio < 1) {
+:root {
+  font-family: system-ui, sans-serif;
+  font-size: clamp(14px, 5vw, 20px);
+  --background-color: #2b2d42;
+  --light-text: #ffffff;
+  --box-border-radius: 12px;
+}
 
-    .bento.layout-1 {
-        --bento-cols: 3;
-        --bento-rows: 5;
-    }
-  
-    .bento.layout-1> :nth-child(n) {
-        /* Reset spans */
-        grid-column: auto;
-        grid-row: auto;
-    }
-  
-    .bento.layout-1> :nth-child(1),
-    .bento.layout-1> :nth-child(8) {
-        grid-column: span 2;
-        grid-row: span 2;
-    }
-  
-    .bento.layout-1> :nth-child(5) {
-        grid-column: span 2;
-    }
-  
-    .bento.layout-1> :nth-child(7) {
-        grid-column: 1;
-        grid-row: 5;
-    }
-    
-  }
+body {
+  background-color: var(--background-color);
+  color: var(--light-text);
+  margin: 0;
+}
+
+main {
+  width: 90%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-block-start: 2rem;
+}
+
+.bento {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, auto);
+}
+
+/* Estilos de cada caja */
+.box {
+  color: var(--light-text);
+  padding: 1rem;
+  border-radius: var(--box-border-radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Fondos de cada caja */
+.box1 { background-color: #D90429; } 
+.box2 { background-color: #1B4332; } 
+.box3 { background-color: #FFC300; color: #000; } 
+.box4 { background-color: #FF7F50; } 
+.box5 { background-color: #605b54; color: #000; } 
+.box6 { background-color: #FEC5E5; color: #000; }
+.box7 { background-color: #ffa6e1; color: #000; } 
+.box8 { background-color: #8e0f31; } 
+
+/* Imágenes ajustadas */
+.box img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+/* Estilos específicos para cajas más grandes */
+.bento > :nth-child(1),
+.bento > :nth-child(8) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.bento > :nth-child(5) {
+  grid-column: span 2;
+}
+
+.bento > :nth-child(7) {
+  grid-column: 1;
+  grid-row: 5;
+}
+
+
+
+
